@@ -3,18 +3,23 @@
 </p>
 
 # Ejecutar en desarrollo
-1.- Clonar el repositorio
-2.- Ejecutar
+1. Clonar el repositorio
+2. Ejecutar
 ```
 npm i
 ```
-3.- Tener Nest CLI instalado
+3. Tener Nest CLI instalado
 ```
 npm i -g @nestjs/cli
 ```
-4.- Levantar la DB
+4. Levantar la DB
 ```
 docker-compose up -d
+```
+
+5. Reconstruir la base de datos con la semilla
+```
+http://localhost:3000/api/v1/seed
 ```
 
 ## Stack usado
