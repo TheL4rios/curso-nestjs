@@ -5,6 +5,8 @@
 postgres/
 .env
 
+/static/products
+
 # Logs
 logs
 *.log
