@@ -6,6 +6,7 @@ import { User } from './entities/user.entity';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
   imports: [
@@ -28,7 +29,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
           }
         }
       }
-    })
+    }),
+    ConfigModule
     // JwtModule.register({
     //   secret: process.env.JWT_SECRET,
     //   signOptions: {
@@ -37,6 +39,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     // })
   ],
   controllers: [AuthController],
-  providers: [AuthService]
+  providers: [AuthService, JwtStrategy],
+  exports: [JwtStrategy, TypeOrmModule, PassportModule, JwtModule]
 })
 export class AuthModule { }
